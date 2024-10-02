@@ -55,8 +55,11 @@ git clone https://github.com/your-username/slam-course.git
 cd slam-course
 ```
 2. Get sensor data  
-Download the `rosbag` files (sensor data) from [here](https://surfdrive.surf.nl/files/index.php/s/cKCFQRLSTa5dfBF) to the slam-course folder
-4. Build the Docker Image [note: use sudo or make a docker group]
+Download the `rosbag` files (sensor data) from [here](https://surfdrive.surf.nl/files/index.php/s/cKCFQRLSTa5dfBF) to the slam-course folder. The downloaded bagfiles could be organized inside in a slam-course folder as shows below (it is completely fine to organize in a different way as well)
+![image](https://github.com/user-attachments/assets/da64c136-003a-4d76-a56f-78abcb296405)
+
+
+4. Build the Docker Image [note: use sudo or make a docker group]  
 Each group exercise has a separate docker file. For any given exercise, go to the respective folder, build the corresponding docker via following commands,
 ```
 cd RPCN_PART_A
