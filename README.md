@@ -1,5 +1,5 @@
 --- This part if for my reference, will be removed shortly
-## To do (depending upon the availability of time, in the preceding order of importance)
+### To do (depending upon the availability of time, in the preceding order of importance)
 
 Course Overview (with Learning objectives along with key concepts)
 Software Setup instructions
