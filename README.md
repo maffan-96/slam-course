@@ -54,21 +54,31 @@ Installing ROS is not necessary.
 git clone https://github.com/your-username/slam-course.git
 cd slam-course
 ```
-2. Build the Docker Image
-Each group exercise has a separate docker file. For any given exercise, go to the respective folder, build the corresponding docker via running 'run_docker.sh' as follows,
+2. Get sensor data  
+Download the `rosbag` files (sensor data) from [here](https://surfdrive.surf.nl/files/index.php/s/cKCFQRLSTa5dfBF) to the slam-course folder
+4. Build the Docker Image [note: use sudo or make a docker group]
+Each group exercise has a separate docker file. For any given exercise, go to the respective folder, build the corresponding docker via following commands,
 ```
-cd RPCN_PART_B
-./run.sh
+cd RPCN_PART_A
+sudo docker build . -t rpcnA  #rpcnA is the docker image name for exercise A
 ```
-The above will build a docker file for exercise B, but it could be followed for exercise A or C similarly.
+Note: The above will build a docker file for exercise A, but it could be followed similarly for exercise B or C.
 3. Start the Docker container
 ```
-git clone https://github.com/your-username/slam-course.git
-cd slam-course
+sudo docker run -it rpcnA bash 
 ```
+OR
+```
+./run.sh
+```
+Note: The above will run a docker file for exercise A, but it could be followed similarly for exercise B or C.
 4. Access the container environment from another terminal
 ```
 docker ps
+```
+You will receive a response similar to the one attached in the picture. Copy the value shown below the container ID (e.g., here 8425931a5549) corresponding to the name of the container you want to open in another terminal/shell. Now, paste the copied value in the format as shown in the following command in-place at `<id>`
+![image](https://github.com/user-attachments/assets/5c67feeb-4f1a-45a3-a726-032f82fee4ff)
+```
 sudo docker exec -it <id> bash
 ```
 5. Close/Terminate the course environment
@@ -80,6 +90,4 @@ exit
 docker ps
 ```
 
-## Note
-rosbags are available from
-https://surfdrive.surf.nl/files/index.php/s/cKCFQRLSTa5dfBF
+
