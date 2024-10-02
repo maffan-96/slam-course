@@ -60,12 +60,12 @@ Download the `rosbag` files (sensor data) from [here](https://surfdrive.surf.nl/
 
 
 4. Build the Docker Image [note: use sudo or make a docker group]  
-Each group exercise has a separate docker file. For any given exercise, go to the respective folder, build the corresponding docker via following commands,
+Each group exercise has a separate docker file. For any given exercise, go to the respective folder, build the corresponding docker via the following commands,
 ```
 cd RPCN_PART_A
-sudo docker build . -t rpcnA  #rpcnA is the docker image name for exercise A
+sudo docker build . -t rpcnA  #rpcnA is the docker image name for exercise A  
 ```
-Note: The above will build a docker file for exercise A, but it could be followed similarly for exercise B or C.
+Note: The above will build a docker file for exercise A, but it could be followed similarly for exercise B or C.  
 3. Start the Docker container
 ```
 sudo docker run -it rpcnA bash 
