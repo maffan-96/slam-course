@@ -55,26 +55,30 @@ git clone https://github.com/your-username/slam-course.git
 cd slam-course
 ```
 2. Build the Docker Image
+Each group exercise has a separate docker file. For any given exercise, go to the respective folder, build the corresponding docker via running 'run_docker.sh' as follows,
 ```
-git clone https://github.com/your-username/slam-course.git
-cd slam-course
+cd RPCN_PART_B
+./run.sh
 ```
+The above will build a docker file for exercise B, but it could be followed for exercise A or C similarly.
 3. Start the Docker container
 ```
 git clone https://github.com/your-username/slam-course.git
 cd slam-course
 ```
-4. Access the course environment
+4. Access the container environment from another terminal
 ```
-git clone https://github.com/your-username/slam-course.git
-cd slam-course
+docker ps
+sudo docker exec -it <id> bash
 ```
 5. Close/Terminate the course environment
 ```
-git clone https://github.com/your-username/slam-course.git
-cd slam-course
+exit
 ```
 6. Cross-check if environment is closed
+```
+docker ps
+```
 
 ## Note
 rosbags are available from
