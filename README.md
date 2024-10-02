@@ -1,5 +1,5 @@
 --- This part if for my reference, will be removed shortly
-# To do (depending upon the availability of time, in the preceding order of importance)
+## To do (depending upon the availability of time, in the preceding order of importance)
 
 Course Overview (with Learning objectives along with key concepts)
 Software Setup instructions
@@ -11,31 +11,14 @@ Further reading/references
 ------
 *****************
 
-# Robot Perception, Cognition, Navigation (RPCN) / Robotic Perception SLAM course
-Ville Lehtola, University of Twente, v.v.lehtola@utwente.nl   
-2022-2024
-
-
-
-Course Exercises:
-**Groupwork A**: Pedestrian dead reckoning through IMU integration — understand how to estimate movement using inertial sensors.
-**IMU calibration**: Part of group work A (may be considered optional).
-**Groupwork B**: 2D LIDAR SLAM with Cartographer — implement SLAM using a 2D Hokuyo LIDAR for mapping environments.
-**Groupwork C**: Coordinate transformations and multi-sensor data registration — register data from different LIDAR sensors, exploring advanced SLAM concepts.
-
-Each group work exercise is intended to deepen the understanding of SLAM principles, with flexibility for both group work and individual practice.
-
-*************above updated version
-
 # Robotic perception SLAM course
 
 Ville Lehtola, University of Twente, v.v.lehtola@utwente.nl   
 2022-2024
 
-This course repository is designed to introduce students to the fundamentals of sensor fusion and SLAM (Simultaneous Localization and Mapping) through hands-on exercises. The course takes students from basic sensor integration to practical SLAM applications using modular code and step-by-step exercises.
-This codebase contains the three RPCN (Robot Perception, Cognition, Navigation) course exercises, intended as group work but may be done individually as well.
+This course repository is designed to introduce students to the fundamentals of SLAM (Simultaneous Localization and Mapping) through hands-on exercises. The course takes students from basic sensor integration to practical SLAM applications using modular exercises.
 
-**Groupwork A**: pedestrian dead reckoning by IMU integration
+**Groupwork A**: Pedestrian dead reckoning by IMU integration
 - Objective: With the help of this group work, students will learn about estimating a pedestrian’s movement by integrating data from an Inertial Measurement Unit (IMU). Students will learn to calculate position, velocity, and orientation by processing accelerometer and gyroscope data.
 - Key Concepts:
   *  IMU calibration and data filtering **(integrated with ecercise A)
