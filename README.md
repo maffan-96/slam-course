@@ -15,7 +15,7 @@ Further reading/references
 Ville Lehtola, University of Twente, v.v.lehtola@utwente.nl   
 2022-2024
 
-This course repository is designed to introduce students to the fundamentals of sensor fusion and SLAM (Simultaneous Localization and Mapping) through hands-on exercises. The course takes students from basic sensor integration to practical SLAM applications using modular code and step-by-step exercises.
+
 
 Course Exercises:
 **Groupwork A**: Pedestrian dead reckoning through IMU integration — understand how to estimate movement using inertial sensors.
@@ -32,8 +32,8 @@ Each group work exercise is intended to deepen the understanding of SLAM princip
 Ville Lehtola, University of Twente, v.v.lehtola@utwente.nl   
 2022-2024
 
-This codebase contains the three RPCN (Robot Perception, Cognition, Navigation) course exercises,
-intended as groupwork but may be done individually as well.
+This course repository is designed to introduce students to the fundamentals of sensor fusion and SLAM (Simultaneous Localization and Mapping) through hands-on exercises. The course takes students from basic sensor integration to practical SLAM applications using modular code and step-by-step exercises.
+This codebase contains the three RPCN (Robot Perception, Cognition, Navigation) course exercises, intended as group work but may be done individually as well.
 
 **Groupwork A**: pedestrian dead reckoning by IMU integration
 - Objective: With the help of this group work, students will learn about estimating a pedestrian’s movement by integrating data from an Inertial Measurement Unit (IMU). Students will learn to calculate position, velocity, and orientation by processing accelerometer and gyroscope data.
