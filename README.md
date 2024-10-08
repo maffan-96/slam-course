@@ -8,6 +8,10 @@ Community and Support (issue tracking and discussion)
 Contribution (fork, push request, etc.)
 Further reading/references
 
+1. change all sh running docker file to same name "run.sh"
+2. remove readme on how to run the code inside each repo a,b, and c
+3. 
+
 ------
 *****************
 
@@ -59,21 +63,61 @@ Download the `rosbag` files (sensor data) from [here](https://surfdrive.surf.nl/
 ![image](https://github.com/user-attachments/assets/da64c136-003a-4d76-a56f-78abcb296405)
 
 
-4. Build the Docker Image [note: use sudo or make a docker group]  
+4. Build the Docker Image [note: use sudo or make a docker group]
 Each group exercise has a separate docker file. For any given exercise, go to the respective folder, build the corresponding docker via the following commands,
-```
-cd RPCN_PART_A
-sudo docker build . -t rpcnA  #rpcnA is the docker image name for exercise A  
-```
-Note: The above will build a docker file for exercise A, but it could be followed similarly for exercise B or C.  
+    #### For exercise A
+    ```
+    cd RPCN_PART_A
+    sudo docker build . -t rpcna  #rpcna is the docker image name for exercise A  
+    ```
+    #### For exercise B
+    ```
+    cd RPCN_PART_B
+    sudo docker build . -t rpcnb  #rpcnb is the docker image name for exercise B  
+    ```
+    #### For exercise C
+    ```
+    cd RPCN_PART_C
+    sudo docker build . -t rpcnc  #rpcnc is the docker image name for exercise C  
+    ```
+ 
 3. Start the Docker container
-```
-sudo docker run -it rpcnA bash 
-```
-OR
-```
-./run.sh
-```
+   
+    While inside any exercise folder (e.g., RPCN_PART_A) 
+     ```
+     ./run_docker.sh (preferred)
+     ```
+     If you see the following (or similar) outcome, you are successfully inside a docker container
+     ![image](https://github.com/user-attachments/assets/04e55f15-0ebe-473f-939c-340f6beb8a4b)
+   
+     a. Check if you have your datasets(.bag) in the container
+           ```
+           cd backpack/bagfiles/
+           ls
+           ``` 
+           ![image](https://github.com/user-attachments/assets/3d72a93c-0fec-4f36-b609-755480f0e8b3)
+           
+     b. To playback rosbag, you need to source ROS with the following command and start ROS
+   
+
+          source /opt/ros/noetic/setup.bash
+          roscore
+
+
+   PS: You must source whenever you open a new terminal and connect it with docker
+           
+     c. Now open two new terminals and connect them to the running container as follows:
+   
+       	   ```
+           docker ps
+           docker exec -it <id> bash
+           ```
+          ![image](https://github.com/user-attachments/assets/626903ff-b364-4c63-b633-4077028c9afa)
+
+           Note: <id> refers to the container ID shown beside the container name (e.g., here 572aa1996226)
+
+         
+
 Note: The above will run a docker file for exercise A, but it could be followed similarly for exercise B or C.
 4. Access the container environment from another terminal
 ```
