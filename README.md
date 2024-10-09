@@ -90,14 +90,14 @@ Each group exercise has a separate docker file. For any given exercise, go to th
      If you see the following (or similar) outcome, you are successfully inside a docker container
      ![image](https://github.com/user-attachments/assets/04e55f15-0ebe-473f-939c-340f6beb8a4b)
    
-     a. Check if you have your datasets(.bag) in the container
+	a.	Check if you have your datasets(.bag) in the container
            ```
            cd backpack/bagfiles/
            ls
            ``` 
            ![image](https://github.com/user-attachments/assets/3d72a93c-0fec-4f36-b609-755480f0e8b3)
            
-     b. To playback rosbag, you need to source ROS with the following command and start ROS
+	b. To playback rosbag, you need to source ROS with the following command and start ROS
    
           source /opt/ros/noetic/setup.bash
           roscore
@@ -105,7 +105,7 @@ Each group exercise has a separate docker file. For any given exercise, go to th
 
    **PS: You must source whenever you open a new terminal and connect it with docker**
            
-     c. Now open two new terminals and connect them to the running container as follows:
+	c. Now open two new terminals and connect them to the running container as follows:
    
        	   
            docker ps
@@ -114,67 +114,67 @@ Each group exercise has a separate docker file. For any given exercise, go to th
            
      ![image](https://github.com/user-attachments/assets/626903ff-b364-4c63-b633-4077028c9afa)
 
-   Note: <id> refers to the container ID shown beside the container name (e.g., here 572aa1996226)
+   Note: `<id>` refers to the container ID shown beside the container name (e.g., here 572aa1996226)
 
-     #### For exercise A (Continue from earlier step `c`)
+     #### For exercise A (Continued from earlier step `c`)
    
-     d. While in a newly open container terminal (one of two newly open terminals) go to `backpack/bagfiles/` and play one of the rosbags
+	d. While in a newly open container terminal (one of two newly open terminals) go to `backpack/bagfiles/` and play one of the rosbags
 
            cd backpack/bagfiles/
            rosbag play <xx.bag> --clock
    
-     e. Go to another newly open container terminal, and look for rostopics as follows
+	e. Go to another newly open container terminal, and look for rostopics as follows
 
             rostopic list #Shows all the published rostopics
             rostopic echo <topicname> #shows data of specific rostopic <topicname>
             rostopic echo /imu/data > ascii_file.txt #Extract the topic data to a text file
             rostopic echo /imu/acceleration | grep x > ascii_x_acc.txt #This saves only the x-axis acceleration data into the file
 
-     f. Use the above commands to save IMU data; this will be used to interpolate a trajectory (See the assignment document for more description).
+	f. Use the above commands to save IMU data; this will be used to interpolate a trajectory (See the assignment document for more description).
 
-     #### For exercise B (Continue from step `c`)
+     #### For exercise B (Continued from step `c`)
    
-     d. Go to the newly open container terminal, and look for rostopics as follows
+	d. Go to the newly open container terminal, and run cartographer
             
             source "/opt/ros/${ROS_DISTRO}/setup.bash"
-            rostopic list #Shows all the published rostopics
-            rostopic echo <topicname> #shows data of specific rostopic <topicname>
-
-    ![image](https://github.com/user-attachments/assets/e201977b-7637-48b7-a4a2-40d722724f1e)
-
-
-     e. Run the cartographer
-
             cd /home/rpcn/catkin_ws
             source "/opt/cartographer_ros/setup.bash"
             source devel/setup.bash
             roslaunch rpcn_part_b rpcn_part_b.launch bag_filename:=/home/rpcn/catkin_ws/src/rpcn_part_b/bagfiles/{your_bag_file_name}
 
-   f. You must understand the cartographer's configuration to complete your assignment specified in the my_robot.lua file.
+	f. You must understand the cartographer's configuration to complete your assignment specified in the my_robot.lua file.
         Use your preferred text editor to view and edit the config file, which is placed inside the following location
 	       `/home/rpcn/catkin_ws/src/rpcn_part_b/configuration_files/my_robot.lua`
-   g.  Edit the my_robot.lua file to enhance the performance of the cartographer SLAM algorithm. You must discuss and plot results (See the assignment document for more description).
+	g.  Edit the my_robot.lua file to enhance the performance of the cartographer SLAM algorithm.
+   You must discuss and plot results (See the assignment document for more description).
 
-     #### For exercise C (Continue from step `c`)
+     #### For exercise C (Continued from step `c`)
    
-     i. We won't use the backpack data in this exercise. We will use NTU VIRAL DATASET for the given exercise.
-   First, download the data `nya_01 (Collected inside the Nanyang Auditorium)` from the website. Place it in the slam-course folder. It
+	d. We won't use the backpack data in this exercise. We will use NTU VIRAL DATASET for the given exercise.
+	First, download the data `nya_01 (Collected inside the Nanyang Auditorium)` from the website, unzip it, and place it in the `slam-course/bagfiles` folder. 
             
-            source "/opt/ros/${ROS_DISTRO}/setup.bash"
-            rostopic list #Shows all the published rostopics
-            rostopic echo <topicname> #shows data of specific rostopic <topicname>
+		wget <bag zipfile URL>
+   		unzip <downloaded bag zipfile (e.g., 68144> -d <bagfile folder>
+   		unzip nya_01 #To get bag and related config files
+   		source "/opt/ros/${ROS_DISTRO}/setup.bash"
+   		cd nya_01/
+   		rosbag play nya_01.bag
+		rostopic list #Shows all the published rostopics
 
-    ![image](https://github.com/user-attachments/assets/e201977b-7637-48b7-a4a2-40d722724f1e)
+	![image](https://github.com/user-attachments/assets/7c6d2b89-312c-4dc9-ace6-a6a207ba2f9b)
 
 
-     ii. Run the cartographer
+	e. Download the customize [A-LOAM](https://github.com/brytsknguyen/A-LOAM) repository for NTU VIRAL Dataset 
 
-            cd /home/rpcn/catkin_ws
-            source "/opt/cartographer_ros/setup.bash"
-            source devel/setup.bash
-            roslaunch rpcn_part_b rpcn_part_b.launch bag_filename:=/home/rpcn/catkin_ws/src/rpcn_part_b/bagfiles/{your_bag_file_name}
+		cd RPCN_PART_C/
+		git clone https://github.com/brytsknguyen/A-LOAM
 
-   iii. You must understand the cartographer's configuration to complete your assignment specified in the my_robot.lua file.
+	f. When successfully cloned the A-LOAM, find the docker image
+		cd ~/catkin_ws/src/A-LOAM/docker
+
+	g. `cd` to the launch folder by running roscd aloam/launch`
+
+	f. You must understand the cartographer's configuration to complete your assignment specified in the my_robot.lua file.
         Use your preferred text editor to view and edit the config file, which is placed inside the following location
 	       `/home/rpcn/catkin_ws/src/rpcn_part_b/configuration_files/my_robot.lua`
    iv.  Edit the my_robot.lua file to enhance the performance of the cartographer SLAM algorithm. You must discuss and plot results (See the assignment document for more description).
