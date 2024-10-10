@@ -50,6 +50,7 @@ This course repository is designed to introduce students to the fundamentals of 
  The following course repositories are recommended to run inside docker. With the help of docker, a pre-configured environment could be run without the need to install individual software dependencies, simplifying the overall process. The exercises are tested with the following versions:
  * Ubuntu Linux 20.04 (expected to work with Ubuntu Linux 22.04)
  * Docker 26.0.00 (expected to work with other versions as well)
+ * MESA (`conda install -c conda-forge libglu` (if using conda) OR `sudo apt-get install libgl1-mesa-glx libgl1-mesa-dri` (if using sudo env)
 Installing ROS is not necessary.
 
 ## Setup Instructions
@@ -167,8 +168,9 @@ Each group exercise has a separate docker file. For any given exercise, go to th
 	e. Download the customize [A-LOAM](https://github.com/brytsknguyen/A-LOAM) repository for NTU VIRAL Dataset 
 
 		cd RPCN_PART_C/
-		git clone https://github.com/brytsknguyen/A-LOAM
-
+		build docker
+		
+ 
 	f. When successfully cloned the A-LOAM, find the docker image
 		cd ~/catkin_ws/src/A-LOAM/docker
 
